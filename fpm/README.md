@@ -41,3 +41,11 @@ docker run -it --rm -v `pwd`/build/app:/data githubenr/fpm \
   fpm -s dir -t rpm -n myproject -v 0.0.1 --epoch 0 \
   --prefix /opt/myproject bin/ etc/ lib/ libexec/
 ```
+
+Final packages will be created in the volume dir:
+
+```sh
+$ ls build/app/
+bin  etc  lib  libexec  myproject-0.0.1-1.x86_64.rpm
+myproject_0.0.1_amd64.deb  resources
+```
