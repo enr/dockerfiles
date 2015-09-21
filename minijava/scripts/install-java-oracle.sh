@@ -2,16 +2,21 @@
 
 # Installs Oracle Java in /opt/java
 # Creates a link in /opt/java/current
-# Updates alternatives
-# Usage:
+# Updates alternatives in system which support it.
+# By default download and installs Java 8.45.14
+# To change version set environment variables:
+# - JAVA_VERSION_MAJOR
+# - JAVA_VERSION_MINOR
+# - JAVA_VERSION_BUILD
+# To install an already downloaded archive:
 # $0 [archive file]
 
 set -e
 
 # Java Version
-JAVA_VERSION_MAJOR='8'
-JAVA_VERSION_MINOR='31'
-JAVA_VERSION_BUILD='13'
+: ${JAVA_VERSION_MAJOR:='8'}
+: ${JAVA_VERSION_MINOR:='45'}
+: ${JAVA_VERSION_BUILD:='14'}
 
 SYSTEM_JAVA_INSTALL_DIR='/usr/bin'
 JAVA_EXECS=('jar' 'jarsigner' 'java' 'javac' 'javadoc' 'javah' 'javap' 'keytool')
@@ -93,7 +98,7 @@ ln -s "${INSTALLATION_BASE_DIR}/${INSTALLATION_BASE_NAME}" "$CURRENT_JAVA"
 
 # Global environment
 TMP_ENV_FILE=$(mktemp)
-ENV_FILE='/etc/profile.d/java-oracle.sh'
+ENV_FILE='/etc/profile.d/java_oracle.sh'
 echo "# Created from ${0}" >> "$TMP_ENV_FILE"
 echo "export JAVA_HOME='$CURRENT_JAVA'" >> "$TMP_ENV_FILE"
 echo 'export PATH="$PATH:$JAVA_HOME/bin"' >> "$TMP_ENV_FILE"

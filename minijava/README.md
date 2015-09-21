@@ -1,7 +1,7 @@
-Minimal image containing Oracle java 8
+Minimal image containing Oracle Java 8
 ======================================
 
-Lightweight image for java.
+Lightweight image for Java based on Alpine.
 
 Build image:
 
@@ -9,10 +9,11 @@ Build image:
 
 Run:
 
-	docker run -it githubenr/minijava /opt/java/current/bin/java -version
-	java version "1.8.0_31"
-	Java(TM) SE Runtime Environment (build 1.8.0_31-b13)
-	Java HotSpot(TM) 64-Bit Server VM (build 25.31-b07, mixed mode)
+	docker run -it githubenr/minijava java -version
+	java version "1.8.0_45"
+	Java(TM) SE Runtime Environment (build 1.8.0_45-b14)
+	Java HotSpot(TM) 64-Bit Server VM (build 25.45-b02, mixed mode)
+
 
 Files
 -----
