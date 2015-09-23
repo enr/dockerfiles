@@ -5,7 +5,7 @@ Image containing `asciidoctor`, `asciidoctor-pdf` and `asciidoctor-epub3`.
 
 Build image:
 
-	docker build -f Dockerfile  --rm=true --tag=dbenr/asciidoctor .
+	docker build -f Dockerfile  --rm=true --tag=denr/asciidoctor .
 
 Run:
 
