@@ -1,37 +1,42 @@
-FROM githubenr/nodejs
-
-USER root
+FROM node:4.1-wheezy
 
 ENV DEBIAN_FRONTEND noninteractive
 
-#RUN apt-get update -y && \
+RUN apt-get update -y
+
 RUN apt-get install --no-install-recommends -y -q \
     libfreetype6 \
-    libfontconfig
+    libfontconfig \
+    bash \
+    curl \
+    python \
+    bzip2 \
+    zip \
+    unzip \
+    build-essential \
+    git
 
 RUN unset DEBIAN_FRONTEND
 
-USER node
-ENV HOME /home/node
+COPY scripts/npm-config.sh /usr/local/bin/npm-config
+RUN chmod +x /usr/local/bin/npm-config
+
+RUN /usr/local/bin/npm-config
+ENV HOME /root
 ENV PATH $PATH:$HOME/npm/bin
 
-RUN npm install --global pageres
-RUN npm install --global phantom-check
-RUN npm install --global tmi
-RUN npm install --global psi
-RUN npm install --global phantomjs
-RUN npm install --global casperjs
-RUN npm install --global dnc
+RUN which node
+RUN node --version
+RUN npm --version
 
-RUN curl -s -S -o /tmp/yslow-phantomjs-3.1.8.zip "http://yslow.org/yslow-phantomjs-3.1.8.zip" && \
-    unzip /tmp/yslow-phantomjs-3.1.8.zip && \
-    rm /tmp/yslow-phantomjs-3.1.8.zip
+RUN npm cache clean
 
-USER root
-COPY scripts/docker-entrypoint.sh /usr/local/bin/entrypoint
-RUN chmod +x /usr/local/bin/entrypoint
+RUN npm install --silent --global tmi@1.0.3
+RUN npm install --silent --global psi@1.0.6
 
-USER node
-WORKDIR /home/node
+RUN npm install --silent --global dnc@0.1.2
 
-ENTRYPOINT ["/usr/local/bin/entrypoint"]
+COPY scripts/container-tools.sh /usr/local/bin/container-tools
+RUN chmod +x /usr/local/bin/container-tools
+
+CMD ["/usr/local/bin/container-tools"]

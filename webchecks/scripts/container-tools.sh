@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-echo $@
-
-#  'dnc'
-CLI_TOOLS=( 'node' 'npm' 'pageres' 'phantom-check' 'tmi' 'psi' 'phantomjs' 'casperjs' )
+CLI_TOOLS=( 'node' 'npm' 'tmi' 'psi' )
 for tool in "${CLI_TOOLS[@]}"; do
 	echo ""
 	echo "--- Tool ${tool}"
