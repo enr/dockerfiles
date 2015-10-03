@@ -3,18 +3,18 @@ Fpm
 
 Build image:
 
-	docker build --rm=true --tag=githubenr/fpm .
+	docker build --rm=true --tag=denr/fpm .
 
 Usage
 -----
 
 Enter in container:
 
-	docker run -it --rm dockerfile/fpm
+	docker run -it --rm denr/fpm
 
 Run `fpm`:
 
-	docker run -it --rm dockerfile/fpm fpm
+	docker run -it --rm denr/fpm fpm
 
 **Examples**
 
