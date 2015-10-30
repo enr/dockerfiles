@@ -29,7 +29,7 @@ bin  etc  lib  libexec  resources
 Build deb:
 
 ```sh
-docker run -it --rm -v `pwd`/build/app:/data githubenr/fpm \
+docker run -it --rm -v `pwd`/build/app:/data denr/fpm \
   fpm -s dir -t deb -n myproject -v 0.0.1 --prefix /opt/myproject \
   bin/ etc/ lib/ libexec/
 ```
@@ -37,7 +37,7 @@ docker run -it --rm -v `pwd`/build/app:/data githubenr/fpm \
 Build rpm:
 
 ```sh
-docker run -it --rm -v `pwd`/build/app:/data githubenr/fpm \
+docker run -it --rm -v `pwd`/build/app:/data denr/fpm \
   fpm -s dir -t rpm -n myproject -v 0.0.1 --epoch 0 \
   --prefix /opt/myproject bin/ etc/ lib/ libexec/
 ```
