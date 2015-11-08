@@ -11,3 +11,5 @@ Yet another `Dockerfile` repo.
 - **minijava**: minimal image with Oracle Java 8
 
 - **webchecks**: image with web checks tools (such as `psi`, `tmi`, `dnc`)
+
+- **ansible**: Ansible configuration management tool on Alpine Linux
