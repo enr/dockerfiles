@@ -15,8 +15,8 @@ set -e
 
 # Java Version
 : ${JAVA_VERSION_MAJOR:='8'}
-: ${JAVA_VERSION_MINOR:='45'}
-: ${JAVA_VERSION_BUILD:='14'}
+: ${JAVA_VERSION_MINOR:='66'}
+: ${JAVA_VERSION_BUILD:='17'}
 
 SYSTEM_JAVA_INSTALL_DIR='/usr/bin'
 JAVA_EXECS=('jar' 'jarsigner' 'java' 'javac' 'javadoc' 'javah' 'javap' 'keytool')

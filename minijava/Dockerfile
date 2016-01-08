@@ -13,8 +13,8 @@ COPY scripts/install-java-oracle.sh /usr/local/bin/install-java-oracle
 RUN chmod +x /usr/local/bin/install-java-oracle
 
 ENV JAVA_VERSION_MAJOR 8
-ENV JAVA_VERSION_MINOR 45
-ENV JAVA_VERSION_BUILD 14
+ENV JAVA_VERSION_MINOR 66 
+ENV JAVA_VERSION_BUILD 17
 RUN /usr/local/bin/install-java-oracle
 
 RUN rm -rf /var/cache/apk/* && \
