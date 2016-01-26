@@ -54,7 +54,8 @@ fi
 tar_tmp_file=$(mktemp)
 gzip -dc "$DOWNLOAD_PATH" > "$tar_tmp_file"
 
-INSTALLATION_BASE_NAME=$(tar tf "$tar_tmp_file" | head -1 | awk -F/ '{print $1}')
+#INSTALLATION_BASE_NAME=$(tar tf "$tar_tmp_file" | head -1 | awk -F/ '{print $1}')
+INSTALLATION_BASE_NAME="jdk-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}_b${JAVA_VERSION_BUILD}"
 JAVA_INSTALL_DIR="${INSTALLATION_BASE_DIR}/${INSTALLATION_BASE_NAME}"
 
 [[ -e "$JAVA_INSTALL_DIR" ]] && {
