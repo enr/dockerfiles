@@ -15,8 +15,8 @@ set -o nounset -o errexit -o pipefail -o errtrace
 
 # Java Version
 : ${JAVA_VERSION_MAJOR:='8'}
-: ${JAVA_VERSION_MINOR:='66'}
-: ${JAVA_VERSION_BUILD:='17'}
+: ${JAVA_VERSION_MINOR:='72'}
+: ${JAVA_VERSION_BUILD:='15'}
 
 SYSTEM_JAVA_INSTALL_DIR='/usr/bin'
 JAVA_EXECS=('jar' 'jarsigner' 'java' 'javac' 'javadoc' 'javah' 'javap' 'keytool')
