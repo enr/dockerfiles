@@ -11,7 +11,7 @@
 # To install an already downloaded archive:
 # $0 [archive file]
 
-set -e
+set -o nounset -o errexit -o pipefail -o errtrace
 
 # Java Version
 : ${JAVA_VERSION_MAJOR:='8'}
@@ -33,13 +33,14 @@ CURRENT_JAVA="${INSTALLATION_BASE_DIR}/current"
     exit 1
 }
 
-if [ -n "$1" ]; then
-    [[ -f "$1" ]] || {
-        echo "Archive file not found ${1}"
+user_java_file=${1:-}
+if [ -n "$user_java_file" ]; then
+    [[ -f "$user_java_file" ]] || {
+        echo "Archive file not found ${user_java_file}"
         exit 1
     }
-    echo "Installing Java from ${1}"
-    DOWNLOAD_PATH="$1"
+    echo "Installing Java from ${user_java_file}"
+    DOWNLOAD_PATH="$user_java_file"
 else
     echo "Installing Java from ${DOWNLOAD_URL}"
     # -s silent
