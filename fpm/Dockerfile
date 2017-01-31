@@ -1,4 +1,4 @@
-FROM ruby
+FROM ruby:2.4.0
 
 # Install RPM for rpm builds
 RUN apt-get update && apt-get install -y rpm
