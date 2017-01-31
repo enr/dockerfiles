@@ -1,9 +1,9 @@
 FROM ruby
 
-RUN gem install --no-ri --no-rdoc asciidoctor --version 1.5.4
-RUN gem install --no-ri --no-rdoc asciidoctor-diagram --version 1.3.1 && \
+RUN gem install --no-ri --no-rdoc asciidoctor --version 1.5.5
+RUN gem install --no-ri --no-rdoc asciidoctor-diagram --version 1.5.4 && \
     gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.6 && \
-    gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.11
+    gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.13
 
 RUN mkdir /documents
 WORKDIR /documents
