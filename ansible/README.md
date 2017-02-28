@@ -5,11 +5,23 @@ Ansible on Alpine Linux.
 
 Build image:
 
-	docker build --rm=true --tag=denr/ansible .
+```
+docker build --rm=true --tag=denr/ansible .
+```
 
-Usage
------
+Ansible:
 
-Sample command:
+```
+$ docker run -it denr/ansible ansible --version
+ansible 2.2.1.0
+  config file =
+  configured module search path = Default w/o overrides
+$ docker run -it denr/ansible which ansible
+/usr/local/bin/ansible
+```
 
-    docker run -it -v `pwd`/hosts:/etc/ansible/hosts -v `pwd`/insecurekey:/tmp/insecurekey denr/ansible ansible all -m ping
+Usage:
+
+```
+docker run -it -v `pwd`/hosts:/etc/ansible/hosts -v `pwd`/insecurekey:/tmp/insecurekey denr/ansible ansible all -m ping
+```
