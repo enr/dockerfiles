@@ -5,12 +5,16 @@ Yet another `Dockerfile` repo.
 
 - **asciidoctor**: image with `asciidoctor` executable
 
-- **fpm**: image with FPM: build packages for multiple platforms (`deb`, `rpm`, etc)
+- **sdkman**: `sdkman` on Alpine
 
-- **minijava**: minimal image with Oracle Java 8
+- **asciidoctorj**: `asciidoctorj` on Alpine
+
+- **fpm**: image with FPM: build packages for multiple platforms (`deb`, `rpm`, etc)
 
 - **webchecks**: image with web checks tools (such as `psi`, `tmi`, `dnc`)
 
-- **ansible**: Ansible configuration management tool on Alpine Linux
+- **ansible**: Ansible configuration management tool on Alpine
+
+- **minijava**: **deprecated, no more maintained** Oracle Java 8 on Alpine
 
 Having Dockerfiles for different applications, I'm using app agnostic tags (ie 1, 2 and so on).
