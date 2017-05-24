@@ -1,4 +1,4 @@
-FROM openjdk:8u111-jdk-alpine
+FROM openjdk:8u121-jdk-alpine
 
 RUN apk add --update bash \
                      curl \
@@ -7,6 +7,8 @@ RUN apk add --update bash \
                      unzip \
                      git
 
+RUN which bash
+RUN ls -al /bin/bash
 RUN rm /bin/sh && ln -s `which bash` /bin/sh
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
