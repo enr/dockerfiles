@@ -1,4 +1,4 @@
-FROM denr/sdkman
+FROM denr/sdkman:latest
 
 RUN apk add --update libc6-compat
 

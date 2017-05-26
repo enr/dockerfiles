@@ -7,13 +7,7 @@ RUN apk add --update bash \
                      unzip \
                      git
 
-RUN which bash
-RUN ls -al /bin/bash
 RUN rm /bin/sh && ln -s `which bash` /bin/sh
-
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
-
-RUN chmod +x /usr/local/bin/docker-entrypoint
 
 # ENV USERNAME ops
 # ENV HOME "/home/${USERNAME}"
@@ -23,13 +17,15 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 
 ENV SDKMAN_DIR /opt/sdkman
 
-WORKDIR SDKMAN_DIR
-
 RUN curl -s get.sdkman.io | bash
+
+WORKDIR $SDKMAN_DIR
 
 RUN set -x \
     && echo "sdkman_auto_answer=true" > $SDKMAN_DIR/etc/config \
     && echo "sdkman_auto_selfupdate=false" >> $SDKMAN_DIR/etc/config \
     && echo "sdkman_insecure_ssl=false" >> $SDKMAN_DIR/etc/config
 
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+RUN chmod +x /usr/local/bin/docker-entrypoint
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
